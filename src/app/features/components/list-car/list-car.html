@@ -1,0 +1,30 @@
+@for (car of vehiculesService.cars; track car.id) {
+  <ul>
+    <li>
+      Marque : {{ car.marque }}
+      <br />
+
+      Couleur : {{ car.color }}
+      <br />
+      prix : {{ car.price | currency: 'EUR' }}
+
+      <br />
+
+      Puissance : {{ car.puissance | power }}
+      <br />
+
+      <input type="number" [(ngModel)]="car.puissance" [disabled]="car.puissance > 900" />
+
+      <br />
+
+      <img [src]="car.imageUrl" [alt]="car.marque" />
+
+      <br />
+
+      <button (click)="puissancePlus(car)">+10 chevaux</button>
+    </li>
+  </ul>
+  @if (car.puissance >= 1800) {
+    <p>🔥 Véhicule très puissant !</p>
+  }
+}

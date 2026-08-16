@@ -1,0 +1,5 @@
+<h1>Composant Parent</h1>
+
+<p>Message reçu : {{ messageRecu }}</p>
+
+<app-enfant [message]="message" [nom]="nom" (messageClick)="recevoirMessage($event)"> </app-enfant>
