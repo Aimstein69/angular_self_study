@@ -1,0 +1,23 @@
+<h1>Connexion</h1>
+
+<form>
+  <label>
+    Nom d'utilisateur :
+    <input type="text" name="username" [(ngModel)]="username" />
+  </label>
+
+  <br />
+
+  <label>
+    Mot de passe :
+    <input type="password" name="password" [(ngModel)]="password" />
+  </label>
+
+  <br />
+
+  <button type="button" (click)="login()">Se connecter</button>
+</form>
+
+@if (errorMessage) {
+  <p>{{ errorMessage }}</p>
+}
