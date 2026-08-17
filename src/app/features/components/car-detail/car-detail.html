@@ -1,0 +1,10 @@
+<h1>Détail du véhicule</h1>
+@if (car) {
+  <p>ID : {{ id }}</p>
+
+  <p>Marque : {{ car?.marque }}</p>
+  <p>Prix : {{ car?.price | currency }}</p>
+  <img [src]="car.imageUrl" [alt]="car.marque" />
+} @else {
+  <h2>vehicule introuvable</h2>
+}

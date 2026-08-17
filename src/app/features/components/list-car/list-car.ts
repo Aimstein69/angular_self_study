@@ -13,6 +13,7 @@ import { PowerPipe } from '../../../shared/pipes/power-pipe';
 })
 export class ListCar {
   vehiculesService = inject(Vehicules);
+  cars = this.vehiculesService.getCars();
   puissancePlus(car:Car):void{
     car.puissance +=10;
   }

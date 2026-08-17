@@ -1,0 +1,51 @@
+<h1>Modifier le véhicule</h1>
+
+@if (car) {
+  <form>
+    <label>
+      ID :
+      <input type="number" name="id" [(ngModel)]="car.id" disabled />
+    </label>
+
+    <br />
+
+    <label>
+      Marque :
+      <input type="text" name="marque" [(ngModel)]="car.marque" />
+    </label>
+
+    <br />
+
+    <label>
+      Prix :
+      <input type="number" name="price" [(ngModel)]="car.price" />
+    </label>
+
+    <br />
+
+    <label>
+      Puissance :
+      <input type="number" name="puissance" [(ngModel)]="car.puissance" />
+    </label>
+
+    <br />
+
+    <label>
+      Couleur :
+      <input type="text" name="color" [(ngModel)]="car.color" />
+    </label>
+
+    <br />
+
+    <label>
+      Image URL :
+      <input type="url" name="imageUrl" [(ngModel)]="car.imageUrl" />
+    </label>
+
+    <br />
+
+    <button type="button" (click)="update()">update</button>
+  </form>
+} @else {
+  <h2>Véhicule introuvable</h2>
+}

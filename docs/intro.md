@@ -17,3 +17,23 @@ Observables
 API HTTP
 backend REST
 publication
+
+notion vue pour l'instant @for
+interpolation
+property binding
+event binding
+two-way binding [(ngModel)]
+pipes
+custom pipe
+@Input() / @Output()
+services
+injection avec inject()
+routing
+lazy loading
+ActivatedRoute
+paramètres d'URL
+find(), findIndex(), some()
+formulaires template-driven
+validation métier
+localStorage bientôt
+guards bientôt

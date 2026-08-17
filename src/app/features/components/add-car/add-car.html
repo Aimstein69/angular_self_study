@@ -1,0 +1,41 @@
+<p>add-car works!</p>
+<h1>ajouter une voiture</h1>
+<form>
+  <label>
+    ID :
+    <input type="number" name="id" [(ngModel)]="id" />
+    <p>id saisi = {{ id }}</p>
+  </label>
+  @if (errorMessage) {
+    <p>{{ errorMessage }}</p>
+  }
+  <br />
+  <label>
+    Marque :
+    <input type="text" name="marque" [(ngModel)]="marque" />
+  </label>
+  <br />
+  <label>
+    Price :
+    <input type="number" name="price" [(ngModel)]="price" />
+  </label>
+  <br />
+  <label>
+    Puissance :
+    <input type="number" name="puissance" [(ngModel)]="puissance" />
+  </label>
+  <br />
+  <label>
+    Couleur :
+    <input type="text" name="color" [(ngModel)]="color" />
+  </label>
+  <br />
+  <label>
+    Image Url :
+    <input type="url" name="imageUrl" [(ngModel)]="imageUrl" />
+  </label>
+  <p>URL saisie : {{ imageUrl }}</p>
+  <br />
+  <button type="button" (click)="creerCar()">Ajouter la voiture</button>
+  <br />
+</form>

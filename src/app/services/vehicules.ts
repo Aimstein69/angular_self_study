@@ -1,7 +1,9 @@
-import { Service } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Car } from '../shared/models/carModel/car.model';
 
-@Service()
+@Injectable({
+providedIn: 'root'
+})
 export class Vehicules {
 
   cars: Car[] = [
@@ -22,5 +24,23 @@ export class Vehicules {
       imageUrl: 'audi.jpg'
     }
   ];
+  getCars(): Car[] {
+  return this.cars;
+};
+getCarById (id:number):Car | undefined{
+      return this.cars.find(car => car.id ===id);
+};
+addCar(car: Car):void{
+  this.cars.push(car)
+}
+updateCar(car: Car): void {
+  const index = this.cars.findIndex(c => c.id === car.id);
 
+  if (index !== -1) {
+    this.cars[index] = car;
+  }
+}
+idExists(id: number): boolean {
+  return this.cars.some(car => car.id === id);
+}
 }
