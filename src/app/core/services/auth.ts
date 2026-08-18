@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable,signal } from '@angular/core';
 
 interface User {
   username: string;
@@ -10,7 +10,7 @@ interface User {
 })
 export class Auth {
 
-  currentUser: User | null = null;
+  currentUser = signal<User | null>(null);
 
   constructor() {
     this.restoreUser();
@@ -20,14 +20,14 @@ export class Auth {
 
     if (username === 'admin' && password === '1234') {
 
-      this.currentUser = {
-        username: 'admin',
-        role: 'admin'
-      };
+      this.currentUser.set({
+      username: 'admin',
+      role: 'admin'
+      });
 
       localStorage.setItem(
         'user',
-        JSON.stringify(this.currentUser)
+        JSON.stringify(this.currentUser())
       );
 
       return true;
@@ -37,7 +37,7 @@ export class Auth {
   }
 
   logout(): void {
-    this.currentUser = null;
+    this.currentUser.set(null);
     localStorage.removeItem('user');
   }
 
@@ -45,15 +45,15 @@ export class Auth {
     const user = localStorage.getItem('user');
 
     if (user) {
-      this.currentUser = JSON.parse(user);
+      this.currentUser.set (JSON.parse(user));
     }
   }
 
-  isLoggedIn(): boolean {
-    return this.currentUser !== null;
-  }
+isLoggedIn(): boolean {
+  return this.currentUser() !== null;
+}
 
   isAdmin(): boolean {
-    return this.currentUser?.role === 'admin';
+    return this.currentUser()?.role === 'admin';
   }
 }

@@ -1,0 +1,30 @@
+<h1>Jeux Xbox</h1>
+<p>Nombre de jeux reçus : {{ games.length }}</p>
+<div>
+  <button (click)="previousPage()" [disabled]="currentPage === 1">← Précédent</button>
+
+  <span> Page {{ currentPage }} / {{ totalPages }} </span>
+
+  <button (click)="nextPage()" [disabled]="currentPage === totalPages">Suivant →</button>
+</div>
+@for (game of paginatedGames; track game.id) {
+  <article>
+    <h2>{{ game.name }}</h2>
+
+    <p>Genre : {{ game.genre.join(', ') }}</p>
+
+    <p>Développeur : {{ game.developers.join(', ') }}</p>
+
+    <p>Éditeur : {{ game.publishers.join(', ') }}</p>
+
+    <h3>Dates de sortie</h3>
+
+    <p>Japon : {{ game.releaseDates.Japan }}</p>
+
+    <p>Amérique du Nord : {{ game.releaseDates.NorthAmerica }}</p>
+
+    <p>Europe : {{ game.releaseDates.Europe }}</p>
+
+    <p>Australie : {{ game.releaseDates.Australia }}</p>
+  </article>
+}

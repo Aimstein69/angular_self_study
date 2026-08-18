@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Auth } from '../../../core/services/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +12,7 @@ import { Auth } from '../../../core/services/auth';
 export class Login {
 
   auth = inject(Auth);
+  router = inject(Router);
 
   username: string = '';
   password: string = '';
@@ -26,6 +28,7 @@ export class Login {
 
     if (success) {
       console.log('Connexion réussie');
+      this.router.navigate(['/']);
     } else {
       this.errorMessage = 'Identifiants incorrects';
     }

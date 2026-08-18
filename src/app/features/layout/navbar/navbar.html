@@ -1,6 +1,13 @@
 <nav>
   <a routerLink="/">Accueil</a>
   <a routerLink="/demo-parent-enfant">Parent / Enfant</a>
-  <a routerLink="/add-car">add-car</a>
+  <a routerLink="/games">games</a>
   <a routerLink="/login">login</a>
+
+  @if (auth.isAdmin()) {
+    <a routerLink="/add-car">add-car</a>
+  }
+  @if (auth.isLoggedIn()) {
+    <button type="button" (click)="auth.logout()">Logout</button>
+  }
 </nav>

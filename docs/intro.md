@@ -35,5 +35,5 @@ paramètres d'URL
 find(), findIndex(), some()
 formulaires template-driven
 validation métier
-localStorage bientôt
-guards bientôt
+localStorage
+guards

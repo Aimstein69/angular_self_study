@@ -22,6 +22,9 @@
       <br />
 
       <button (click)="puissancePlus(car)">+10 chevaux</button>
+      @if (auth.isAdmin()) {
+        <a [routerLink]="['/vehicules', car.id, 'update']">update-car</a>
+      }
     </li>
   </ul>
   @if (car.puissance >= 1800) {

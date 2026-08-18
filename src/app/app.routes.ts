@@ -8,6 +8,7 @@ import { AddCar } from './features/components/add-car/add-car';
 import { UpdateCar } from './features/components/update-car/update-car';
 import { Login } from './features/auth/login/login';
 import { authGuard } from './core/guards/auth-guard';
+import { ListGames } from './features/xbox/list-games/list-games';
 export const routes: Routes = [
       {
     path: '',
@@ -37,6 +38,10 @@ export const routes: Routes = [
 {
   path: 'login',
   component: Login,
+},
+{
+  path: 'games',
+  component:ListGames
 },
     {
     path: '**',
